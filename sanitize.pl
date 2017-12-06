@@ -16,6 +16,10 @@ postProb(e) :- isProblematic(e).
 
 findFriends(User, Person):- friends(User, Person).
 
+isFriend(User, Friend) :- friends(User, P), memberchk(Friend, P).
+
+friendsCount(User, List) :- Length(List, X).
+
 findPost(ID, user, message) :- post(ID, user, message).
 
 % the final rule to build
