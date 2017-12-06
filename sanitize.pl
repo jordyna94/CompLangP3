@@ -27,3 +27,9 @@ toBeCheckedPost(User, IntViewer, ID) :-
 										friends(User, pete) , friends(User, ali).
 
 % setof(ID, toBeCheckedPost(joe, rick, ID), S).
+
+didComment(User, Person, ID) :- post(I, User, _), comment(Person, I, _).
+# This rule doesnt work yet
+commentedOn(User, Person, ID) :- 
+							didComment(User, P, ID);
+							isFriend(User, P).
